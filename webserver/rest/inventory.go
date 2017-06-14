@@ -3,9 +3,9 @@ package rest
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/xackery/eqemuconfig"
-	"github.com/xackery/shinshop/database"
-	"github.com/xackery/shinshop/database/inventory"
+	"github.com/Xackery/eqemuconfig"
+	"github.com/Xackery/shinshop/database"
+	"github.com/Xackery/shinshop/database/inventory"
 	"log"
 	"net/http"
 )

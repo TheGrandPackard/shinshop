@@ -1,9 +1,9 @@
 package template
 
 import (
-	"github.com/xackery/eqemuconfig"
-	"github.com/xackery/shinshop/database"
-	"github.com/xackery/shinshop/database/character"
+	"github.com/Xackery/eqemuconfig"
+	"github.com/Xackery/shinshop/database"
+	"github.com/Xackery/shinshop/database/character"
 	"log"
 	"net/http"
 )

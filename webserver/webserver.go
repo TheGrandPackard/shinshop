@@ -1,17 +1,17 @@
 package webserver
 
 import (
-	//"github.com/gorilla/pat"
 	"fmt"
-	"github.com/skratchdot/open-golang/open"
-	"github.com/xackery/eqemuconfig"
-	"github.com/xackery/shinshop/database"
-	"github.com/xackery/shinshop/webserver/rest"
-	"github.com/xackery/shinshop/webserver/rest/inventory"
-	"github.com/xackery/shinshop/webserver/template"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/skratchdot/open-golang/open"
+	"github.com/Xackery/eqemuconfig"
+	"github.com/Xackery/shinshop/database"
+	"github.com/Xackery/shinshop/webserver/rest"
+	"github.com/Xackery/shinshop/webserver/rest/inventory"
+	"github.com/Xackery/shinshop/webserver/template"
 )
 
 var isProduction = true
@@ -37,7 +37,6 @@ func Start(addr string) (err error) {
 	}
 
 	template.LoadTemplates()
-	//r := pat.New()
 
 	http.HandleFunc("/", Index)
 	http.HandleFunc("/item/", template.ItemIndex)
@@ -48,6 +47,7 @@ func Start(addr string) (err error) {
 	http.HandleFunc("/map/editor/", template.MapEditor)
 
 	http.HandleFunc("/item/editor/", template.ItemEditor)
+
 	http.HandleFunc("/rest/", rest.Index)
 	http.HandleFunc("/rest/item/getbyid", rest.ItemGetById)
 	http.HandleFunc("/rest/item/searchbyname", rest.ItemSearchByName)
@@ -56,7 +56,6 @@ func Start(addr string) (err error) {
 	http.HandleFunc("/rest/inventory/move", inventory.ActionMove)
 	http.HandleFunc("/rest/inventory/remove", inventory.ActionRemove)
 	http.HandleFunc("/rest/inventory/update", inventory.ActionUpdate)
-
 	http.HandleFunc("/rest/map/getbyshortname/", rest.MapGetByShortname)
 
 	//http.Handle("/", r)

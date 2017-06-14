@@ -23,12 +23,18 @@
 					</div>
 				</form>
 			</div>
-
-		<div id="svg" width="2000px" height="2000px"></div>
+			<div class="row">
+				<div class="col-md-12">
+					<div id="map_container" style="width: 100%; height: 800px; border:1px solid black; ">
+						<svg id="map_svg" xmlns="http://www.w3.org/2000/svg" style="display: inline; width: inherit; min-width: inherit; max-width: inherit; height: inherit; min-height: inherit; max-height: inherit;"></svg>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
-<!-- link rel="stylesheet" type="text/css" href="/css/map/jquery.svg.css" --> 
+
 <script>var name = {{.LastSearchQuery}}</script>
 <script type="text/javascript" src="/js/map/snap.svg.js"></script>
+<script type="text/javascript" src="/js/map/svg-pan-zoom.js"></script>
 <script type="text/javascript" src="/js/map/map.js"></script>
