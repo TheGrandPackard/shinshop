@@ -22,3 +22,9 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+bin/*
+eqemu_config.xml
+webserver/rest/mapdata.go
+webserver/template/templatedata.go
+webserver/webdata.go
