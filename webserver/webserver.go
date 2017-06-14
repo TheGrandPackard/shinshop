@@ -5,13 +5,14 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
-	"github.com/skratchdot/open-golang/open"
 	"github.com/Xackery/eqemuconfig"
 	"github.com/Xackery/shinshop/database"
 	"github.com/Xackery/shinshop/webserver/rest"
 	"github.com/Xackery/shinshop/webserver/rest/inventory"
 	"github.com/Xackery/shinshop/webserver/template"
+	"github.com/skratchdot/open-golang/open"
 )
 
 var isProduction = true
@@ -60,7 +61,7 @@ func Start(addr string) (err error) {
 
 	//http.Handle("/", r)
 	log.Println("Started Web Server on", addr)
-	go openBrowser(addr)
+	go openBrowser(strings.Replace(addr, "0.0.0.0", "127.0.0.1", 1))
 	err = http.ListenAndServe(addr, nil)
 	fmt.Println("Press enter to exit.")
 	exit := ""
