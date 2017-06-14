@@ -5,7 +5,7 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
-	"github.com/xackery/eqemuconfig"
+	"github.com/Xackery/eqemuconfig"
 )
 
 func Connect(config *eqemuconfig.Config) (db *sqlx.DB, err error) {

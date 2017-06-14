@@ -10,6 +10,16 @@ if not exist bin mkdir bin
 set VERSION="0.12"
 set NAME="shinshop"
 
+echo Packing Data
+cd webserver
+go-bindata-assetfs -ignore=\\.DS_Store -pkg template templates/...
+move bindata_assetfs.go template/templatedata.go >nul
+go-bindata-assetfs -ignore=\\.DS_Store -pkg webserver web/...
+move bindata_assetfs.go webdata.go >nul
+go-bindata-assetfs -ignore=\\.DS_Store -pkg rest rest/map/...
+move bindata_assetfs.go rest/mapdata.go >nul
+cd ..
+
 echo Building Linux
 set GOOS=linux
 set GOARCH=amd64

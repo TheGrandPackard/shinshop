@@ -3,8 +3,8 @@ package inventory
 import (
 	"fmt"
 	"github.com/jmoiron/sqlx"
-	"github.com/xackery/goeq/inventory"
-	"github.com/xackery/goeq/item"
+	"github.com/Xackery/goeq/inventory"
+	"github.com/Xackery/goeq/item"
 )
 
 type InventoryOutput struct {

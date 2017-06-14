@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/xackery/shinshop/webserver"
+	"github.com/Xackery/shinshop/webserver"
 	"log"
 	"os"
 )

@@ -3,8 +3,9 @@ package character
 import (
 	"database/sql"
 	"fmt"
+
+	"github.com/Xackery/goeq/character"
 	"github.com/jmoiron/sqlx"
-	"github.com/xackery/goeq/character"
 	//"time"
 )
 
@@ -19,11 +20,11 @@ type CharacterOutput struct {
 
 //Find all Characters by wildcard name
 func FindAllByName(db *sqlx.DB, name string) (characters []*CharacterOutput, err error) {
-	rows, err := db.Queryx(`SELECT cd.*, cs.name as class_name, g.name as guild_name, g.id as guild_id, gm.rank as guild_rank 
-		FROM character_data cd 
-		JOIN class_skill cs ON (cs.class = cd.class) 
-		LEFT JOIN guild_members gm ON (gm.char_id = cd.id) 
-		LEFT JOIN guilds g ON (g.id = gm.guild_id) 
+	rows, err := db.Queryx(`SELECT cd.*, cs.name as class_name, g.name as guild_name, g.id as guild_id, gm.rank as guild_rank
+		FROM character_data cd
+		JOIN class_skill cs ON (cs.class = cd.class)
+		LEFT JOIN guild_members gm ON (gm.char_id = cd.id)
+		LEFT JOIN guilds g ON (g.id = gm.guild_id)
 		WHERE cd.Name LIKE ?`, "%"+name+"%")
 	if err != nil {
 		fmt.Println("Error initial")
@@ -79,9 +80,9 @@ func FindAllByName(db *sqlx.DB, name string) (characters []*CharacterOutput, err
 //Get a character by ID
 func GetById(db *sqlx.DB, id string) (character *CharacterOutput, err error) {
 	character = &CharacterOutput{}
-	err = db.QueryRowx(`SELECT cd.*, cs.name as class_name 
-		FROM character_data cd 
-		JOIN class_skill cs ON (cs.class = cd.class) 
+	err = db.QueryRowx(`SELECT cd.*, cs.name as class_name
+		FROM character_data cd
+		JOIN class_skill cs ON (cs.class = cd.class)
 		WHERE cd.id = ?`, id).StructScan(character)
 	if err != nil {
 		fmt.Errorf("Error querying: %s", err.Error())

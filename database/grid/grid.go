@@ -3,7 +3,7 @@ package grid
 import (
 	"fmt"
 	"github.com/jmoiron/sqlx"
-	"github.com/xackery/goeq/grid"
+	"github.com/Xackery/goeq/grid"
 )
 
 type GridOutput struct {
